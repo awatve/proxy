@@ -7,9 +7,8 @@ export default {
       const res = await fetch(url);
       let text = await res.text();
 
-      // Prefix all TS segment URLs with the desired CORS proxy
+      // Prefix all TS segment URLs with CORS proxy
       text = text.replace(/(https?:\/\/[^\n]+)/g, match => {
-        // Only prefix .ts files
         if (match.endsWith('.ts')) {
           return `https://cors-proxy.cooks.fyi/${match}`;
         }
